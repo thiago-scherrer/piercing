@@ -119,71 +119,40 @@
 		</div>
 		<div class="row services-content">
 			<div class="col-four">
-				<h3>Orelha</h3>
-				<div class="gallery">
-					<div class="gallery-item">
-						<img src="images/piercings/5.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/2.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/7.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/1.jpeg">
-
-					</div>
-				</div>
+				<h3></h3>
+				<div class="gallery" id="gallery-col-1"></div>
 			</div>
 			<div class="col-four">
-				<h3>Rosto</h3>
-				<div class="gallery">
-					<div class="gallery-item">
-						<img src="images/piercings/1.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/2.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/3.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/4.jpeg">
-
-					</div>
-				</div>
+				<h3></h3>
+				<div class="gallery" id="gallery-col-2"></div>
 			</div>
 			<div class="col-four">
-				<h3>Outros</h3>
-				<div class="gallery">
-					<div class="gallery-item">
-						<img src="images/piercings/5.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/6.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/7.jpeg">
-
-					</div>
-					<div class="gallery-item">
-						<img src="images/piercings/4.jpeg">
-
-					</div>
-				</div>
+				<h3></h3>
+				<div class="gallery" id="gallery-col-3"></div>
 			</div>
 		</div>
 	</section>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const totalImages = 34;
+			const imagesPerColumn = Math.ceil(totalImages / 3);
 
+			for (let i = 1; i <= totalImages; i++) {
+				const imgElement = document.createElement("img");
+				imgElement.src = `images/piercings/${i}.jpeg`;
+				imgElement.alt = `Piercing ${i}`;
+				imgElement.classList.add("gallery-item");
+
+				if (i <= imagesPerColumn) {
+					document.getElementById("gallery-col-1").appendChild(imgElement);
+				} else if (i <= imagesPerColumn * 2) {
+					document.getElementById("gallery-col-2").appendChild(imgElement);
+				} else {
+					document.getElementById("gallery-col-3").appendChild(imgElement);
+				}
+			}
+		});
+	</script>
 	<section id="contact">
 
 		<div class="row section-intro">
