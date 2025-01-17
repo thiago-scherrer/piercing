@@ -2461,6 +2461,38 @@ header .logo a {
 	max-width: 1440px;
 }
 
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	justify-content: center;
+}
+
+.gallery-item {
+	width: calc(50% - 15px);
+	text-align: center;
+}
+
+.gallery-item img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 5px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item p {
+	margin-top: 10px;
+	font-size: 1rem;
+	color: #333;
+}
+
+@media (max-width: 768px) {
+	.gallery-item {
+		width: calc(70% - 15px);
+	}
+}
+
 #stats .stat {
 	border-left: 1px solid rgba(255, 255, 255, 0.12);
 	min-height: 17.4rem;
