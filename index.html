@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/slick-theme.css">
 
         <!-- script
    ================================================== -->
@@ -128,6 +130,12 @@
                         </div>
                         <div class="col-four">
                                 <h3></h3>
+<div class="carousel">
+    <div><img src="images/piercings/1.jpeg" alt="Piercing 1"></div>
+    <div><img src="images/piercings/2.jpeg" alt="Piercing 2"></div>
+    <div><img src="images/piercings/3.jpeg" alt="Piercing 3"></div>
+    <!-- Add more images as needed -->
+</div>
                                 <div class="gallery" id="gallery-col-3"></div>
                         </div>
                 </div>
@@ -145,6 +153,15 @@
                                 imgElement.classList.add("gallery-item");
 
                                 if (i <= imagesPerColumn) {
+$('.carousel').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: true,
+    dots: true
+});
                                         document.getElementById("gallery-col-1").appendChild(imgElement);
                                 } else if (i <= imagesPerColumn * 2) {
                                         document.getElementById("gallery-col-2").appendChild(imgElement);
@@ -230,7 +247,8 @@
    ================================================== -->
         <script src="js/jquery-2.1.3.min.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/slick.min.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
