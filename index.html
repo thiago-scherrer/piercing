@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
         <!-- script
    ================================================== -->
@@ -118,41 +119,35 @@
                         </div>
                 </div>
                 <div class="row services-content">
-                        <div class="col-four">
-                                <h3></h3>
-                                <div class="gallery" id="gallery-col-1"></div>
-                        </div>
-                        <div class="col-four">
-                                <h3></h3>
-                                <div class="gallery" id="gallery-col-2"></div>
-                        </div>
-                        <div class="col-four">
-                                <h3></h3>
-                                <div class="gallery" id="gallery-col-3"></div>
-                        </div>
-                </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="i in totalImages" :key="i">
+                <img :src="`images/piercings/${i}.jpeg`" :alt="`Piercing ${i}`" class="gallery-item">
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
         </section>
         <script>
                 document.addEventListener("DOMContentLoaded", function () {
-                        const totalImages = 38;
-                        const imagesPerColumn = Math.ceil(totalImages / 3);
-
-                        for (let i = 1; i <= totalImages; i++) {
-                                const imgElement = document.createElement("img");
-                                imgElement.src = `images/piercings/${i}.jpeg`;
-                                imgElement.alt = `Piercing ${i}`;
-                                imgElement.loading = "lazy";
-                                imgElement.classList.add("gallery-item");
-
-                                if (i <= imagesPerColumn) {
-                                        document.getElementById("gallery-col-1").appendChild(imgElement);
-                                } else if (i <= imagesPerColumn * 2) {
-                                        document.getElementById("gallery-col-2").appendChild(imgElement);
-                                } else {
-                                        document.getElementById("gallery-col-3").appendChild(imgElement);
-                                }
-                        }
-                });
+    const totalImages = 38;
+    new Swiper('.swiper-container', {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+});
         </script>
         <section id="contact">
 
@@ -231,6 +226,7 @@
         <script src="js/jquery-2.1.3.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </body>
 
