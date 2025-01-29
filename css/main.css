@@ -1,6 +1,6 @@
 #gallery-col-1, #gallery-col-2, #gallery-col-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
     margin: 20px 0;
 }
