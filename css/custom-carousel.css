@@ -1,0 +1,16 @@
+@media only screen and (max-width: 768px) {
+  .slides img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .slides img {
+    display: block;
+    max-height: 500px;
+    object-fit: contain;
+  }
+}
