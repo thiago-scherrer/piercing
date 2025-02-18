@@ -10,8 +10,7 @@
    ================================================== -->
   <meta charset="utf-8">
   <title>Scherrer Piercing - Excelência em Body Piercing</title>
-  <meta name="description"
-    content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
+  <meta name="description" content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
   <meta name="keywords" content="body piercing, perfuração segura, Karina Scherrer, estúdio de piercing, arte corporal">
   <meta name="author" content="Karina Scherrer">
 
@@ -30,53 +29,52 @@
   <link rel="stylesheet" href="css/vendor.css">
 
 
-  <style>
-    .carousel-container {
-      position: relative;
-      max-width: 50%;
-      margin: auto;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .slides {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .slides img {
-      display: none;
-      width: auto;
-      height: 500px;
-      max-width: 100%;
-    }
+.slides img {
+  display: none;
+  width: auto;
+  height: 500px;
+  max-width: 100%;
+}
 
-    .carousel-btn {
-      cursor: pointer;
-      position: absolute;
-      transform: translateY(-50%);
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      color: white;
-      background-color: rgba(0, 0, 0, 0.8);
-      /* Fundo quase opaco para melhor visibilidade */
-      border: none;
-      user-select: none;
-    }
+.carousel-btn {
+  cursor: pointer;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo quase opaco para melhor visibilidade */
+  border: none;
+  user-select: none;
+}
 
-    .prev {
-      left: 5px;
-    }
+.prev {
+  left: 5px;
+}
 
-    .next {
-      right: 5px;
-    }
-  </style>
-
+.next {
+  right: 5px;
+}
+</style>
+  
 
   <!-- script
    ================================================== -->
@@ -196,10 +194,10 @@
         if (i === 1) imgElement.style.display = "block";
         slidesContainer.appendChild(imgElement);
       }
-
+      
       let slideIndex = 0;
 
-      window.navigateSlides = function (n) {
+      window.navigateSlides = function(n) {
         const slides = document.querySelectorAll(".slide-img");
         slides[slideIndex].style.display = "none";
         slideIndex = (slideIndex + n + slides.length) % slides.length;
@@ -207,7 +205,7 @@
       }
     });
   </script>
-
+  
   <section id="contact">
 
     <div class="row section-intro">
