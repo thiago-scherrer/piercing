@@ -28,6 +28,54 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/vendor.css">
 
+
+<style>
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slides {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slides img {
+  display: none;
+  width: auto;
+  height: 500px;
+  max-width: 100%;
+}
+
+.carousel-btn {
+  cursor: pointer;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo quase opaco para melhor visibilidade */
+  border: none;
+  user-select: none;
+}
+
+.prev {
+  left: 5px;
+}
+
+.next {
+  right: 5px;
+}
+</style>
+  
+
   <!-- script
    ================================================== -->
   <script src="js/modernizr.js"></script>
@@ -119,42 +167,45 @@
       </div>
     </div>
     <div class="row services-content">
-      <div class="col-four">
-        <h3></h3>
-        <div class="gallery" id="gallery-col-1" aria-label="Galeria de Piercings Coluna 1"></div>
-      </div>
-      <div class="col-four">
-        <h3></h3>
-        <div class="gallery" id="gallery-col-2" aria-label="Galeria de Piercings Coluna 2"></div>
-      </div>
-      <div class="col-four">
-        <h3></h3>
-        <div class="gallery" id="gallery-col-3" aria-label="Galeria de Piercings Coluna 3"></div>
+      <div class="col-twelve">
+        <h3>Galeria de Piercings</h3>
+        <section id="carousel">
+          <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="navigateSlides(-1)">&#10094;</button>
+            <div class="slides" id="slidesContainer">
+              <!-- Imagens serão adicionadas aqui dinamicamente -->
+            </div>
+            <button class="carousel-btn next" onclick="navigateSlides(1)">&#10095;</button>
+          </div>
+        </section>
       </div>
     </div>
   </section>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const totalImages = 48;
-      const imagesPerColumn = Math.ceil(totalImages / 3);
+      const slidesContainer = document.getElementById("slidesContainer");
+      const imgCount = 48;
 
-      for (let i = 1; i <= totalImages; i++) {
+      for (let i = 1; i <= imgCount; i++) {
         const imgElement = document.createElement("img");
         imgElement.src = `images/piercings/${i}.jpeg`;
         imgElement.alt = `Piercing ${i}`;
-        imgElement.loading = "lazy";
-        imgElement.classList.add("gallery-item");
+        imgElement.classList.add("slide-img");
+        if (i === 1) imgElement.style.display = "block";
+        slidesContainer.appendChild(imgElement);
+      }
+      
+      let slideIndex = 0;
 
-        if (i <= imagesPerColumn) {
-          document.getElementById("gallery-col-1").appendChild(imgElement);
-        } else if (i <= imagesPerColumn * 2) {
-          document.getElementById("gallery-col-2").appendChild(imgElement);
-        } else {
-          document.getElementById("gallery-col-3").appendChild(imgElement);
-        }
+      window.navigateSlides = function(n) {
+        const slides = document.querySelectorAll(".slide-img");
+        slides[slideIndex].style.display = "none";
+        slideIndex = (slideIndex + n + slides.length) % slides.length;
+        slides[slideIndex].style.display = "block";
       }
     });
   </script>
+  
   <section id="contact">
 
     <div class="row section-intro">
