@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+
+        <!--- basic page needs
+   ================================================== -->
+        <meta charset="utf-8">
+        <title>Scherrer Piercing</title>
+        <meta name="description" content="Explore a excelência em body piercing com Karina Scherrer. Priorize segurança, qualidade e conforto em um ambiente acolhedor para sua transformação corporal.">
+        <meta name="author" content="">
+
+        <!-- mobile specific metas
+   ================================================== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+        <!-- CSS
+   ================================================== -->
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/vendor.css">
+
+        <!-- script
+   ================================================== -->
+        <script src="js/modernizr.js"></script>
+        <script src="js/pace.min.js"></script>
+
+        <!-- favicons
+        ================================================== -->
+        <link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+
+<body id="top">
+
+        <!-- intro section
+   ================================================== -->
+        <section id="intro">
+
+                <div class="intro-overlay"></div>
+
+                <div class="intro-content">
+                        <div class="row">
+
+                                <div class="col-twelve">
+
+                                        <h1>Scherrer Piercing</h1>
+
+                                        <p class="intro-position">
+                                                <span>Seu Corpo</span>
+                                                <span>Sua Arte</span>
+                                        </p>
+
+                                        <a class="button stroke smoothscroll" href="#estudio" title="">Sobre o estudio</a>
+
+                                </div>
+
+                        </div>
+                </div> <!-- /intro-content -->
+
+
+
+        </section> <!-- /intro -->
+
+
+        <!-- estudio section
+   ================================================== -->
+        <section id="estudio">
+
+                <div class="row section-intro">
+                        <div class="col-twelve">
+
+                                <h5> Excelência em Body Piercing </h5>
+
+
+                                <div class="intro-info">
+
+                                        <img src="images/scherrer.jpeg" alt="Karina Scherrer">
+
+                                        <p class="lead">Oi! Me chamo Karina Scherrer e aqui na Scherrer Piercing, priorizamos a segurança,
+                                                qualidade e o conforto dos
+                                                nossos
+                                                clientes. Com anos de experiência, oferecemos um ambiente higienizado e acolhedor para a sua
+                                                transformação corporal. </p>
+                                </div>
+
+                        </div>
+                </div> <!-- /section-intro -->
+
+                <div class="row estudio-content">
+
+                        <div class="col-six tab-full">
+
+                                <h3></h3>
+
+                        </div>
+
+                        <div class="col-six tab-full">
+
+                                </ul> <!-- /skill-bars -->
+
+                        </div>
+
+                </div>
+
+        </section>
+
+
+        <section id="services" class="grey-section">
+                <div class="row section-intro">
+                        <div class="col-twelve">
+                                <h5>Perfurações Realizadas</h5>
+                                <h1>Trabalhamos com diferentes estilos de piercing para cada parte do corpo.</h1>
+                                <p class="lead"></p>
+                        </div>
+                </div>
+                <div class="row services-content">
+                        <div class="col-four">
+                                <h3></h3>
+                                <div class="gallery" id="gallery-col-1"></div>
+                        </div>
+                        <div class="col-four">
+                                <h3></h3>
+                                <div class="gallery" id="gallery-col-2"></div>
+                        </div>
+                        <div class="col-four">
+                                <h3></h3>
+                                <div class="gallery" id="gallery-col-3"></div>
+                        </div>
+                </div>
+        </section>
+        <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                        const totalImages = 38;
+                        const imagesPerColumn = Math.ceil(totalImages / 3);
+
+                        for (let i = 1; i <= totalImages; i++) {
+                                const imgElement = document.createElement("img");
+                                imgElement.src = `images/piercings/${i}.jpeg`;
+                                imgElement.alt = `Piercing ${i}`;
+                                imgElement.loading = "lazy";
+                                imgElement.classList.add("gallery-item");
+
+                                if (i <= imagesPerColumn) {
+                                        document.getElementById("gallery-col-1").appendChild(imgElement);
+                                } else if (i <= imagesPerColumn * 2) {
+                                        document.getElementById("gallery-col-2").appendChild(imgElement);
+                                } else {
+                                        document.getElementById("gallery-col-3").appendChild(imgElement);
+                                }
+                        }
+                });
+        </script>
+        <section id="contact">
+
+                <div class="row section-intro">
+                        <div class="col-twelve">
+
+                                <h5>Agende uma perfuração!</h5>
+                        </div>
+                </div> <!-- /section-intro -->
+
+                <div class="row contact-info">
+
+                        <div class="col-four tab-full">
+
+                                <div class="icon">
+                                        <a href="https://www.google.com/maps/dir//scherrer+piercing/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x94ce577d7c550337:0x5a8e71dbd92563c5?sa=X&ved=1t:3061&ictx=111"
+                                                target="_blank">
+                                                <i class="icon-pin"></i>
+                                        </a>
+                                </div>
+                                <h5>Onde estamos</h5>
+
+                        </div>
+
+                        <div class="col-four tab-full collapse">
+
+                                <div class="icon">
+                                        <a href="https://www.instagram.com/scherrerpiercing/" target="_blank">
+                                                <i class="fa fa-instagram"></i>
+                                        </a>
+                                </div>
+
+                                <h5>Instagram</h5>
+
+                        </div>
+
+                        <div class="col-four tab-full">
+
+                                <div class="icon">
+                                        <a href="https://wa.me/5511990137278" target="_blank">
+                                                <i class="icon-phone"></i>
+                                        </a>
+                                </div>
+
+                                <h5>whatsapp</h5>
+
+                        </div>
+
+                </div>
+
+        </section>
+
+
+        <!-- footer
+   ================================================== -->
+
+        <footer>
+                <div class="row">
+                        <div class="col-six tab-full pull-right social">
+
+                        </div>
+
+                        <div id="go-top">
+                                <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+                        </div>
+
+                </div> <!-- /row -->
+        </footer>
+
+        <div id="preloader">
+                <div id="loader"></div>
+        </div>
+
+        <!-- Java Script
+   ================================================== -->
+        <script src="js/jquery-2.1.3.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+</body>
+
+</html>
