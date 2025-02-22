@@ -193,7 +193,7 @@
         const imgElement = document.createElement("img");
         imgElement.setAttribute("data-src", `images/piercings/${i}.jpeg`); // Use data-src
         imgElement.alt = `Piercing ${i}`;
-        imgElement.classList.add("slide-img", "lazy-load"); // Add lazy-load class
+        imgElement.classList.add("gallery-item", "slide-img", "lazy-load"); // Add gallery-item for hover zoom
         if (i === 1) imgElement.style.display = "block";
         slidesContainer.appendChild(imgElement);
       }
