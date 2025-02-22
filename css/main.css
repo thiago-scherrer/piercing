@@ -1,21 +1,24 @@
-#gallery-col-1, #gallery-col-2, #gallery-col-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-    margin: 20px 0;
+#gallery-col-1,
+#gallery-col-2,
+#gallery-col-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        margin: 20px 0;
 }
 
 .gallery-item {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+        transform: scale(1.05);
 }
+
 /**
  * ===================================================================
  *
@@ -1584,7 +1587,7 @@ header .logo a {
  * -------------------------------------------------------------------
  */
 #intro {
-        background: #151515 url(../images/intro-bg.jpg) no-repeat center bottom;
+        background: #151515 no-repeat center bottom;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
@@ -2368,7 +2371,7 @@ header .logo a {
  * -------------------------------------------------------------------
  */
 #services {
-        background: #313131 url(../images/bg.jpg) no-repeat center;
+        background: #313131 no-repeat center;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         background-size: cover;
