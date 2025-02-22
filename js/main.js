@@ -7,11 +7,11 @@
 
 (function($) {
 
-	"use strict";
+    "use strict";
 
-	/*---------------------------------------------------- */
-	/* Preloader
-	------------------------------------------------------ */ 
+    /*---------------------------------------------------- */
+    /* Preloader
+    ------------------------------------------------------ */ 
    $(window).load(function() {
 
       // will first fade out the loading animation 
@@ -48,10 +48,10 @@
         navigation: false,
         pagination: true,
         itemsCustom : [
-	        [0, 1],
-	        [700, 2],
-	        [960, 3]
-	     ],
+        	[0, 1],
+        	[700, 2],
+        	[960, 3]
+     	 ],
         navigationText: false
     });
 
@@ -74,19 +74,19 @@
 
    	handler: function(direction) {
 
-      	if (direction === "down") {       		
+      	if (direction === "down") {       	
 
-			   stats.each(function () {
-				   var $this = $(this);
+		   stats.each(function () {
+		   	var $this = $(this);
 
-				   $({ Counter: 0 }).animate({ Counter: $this.text() }, {
-				   	duration: 4000,
-				   	easing: 'swing',
-				   	step: function (curValue) {
-				      	$this.text(Math.ceil(curValue));
-				    	}
-				  	});
-				});
+		   	$({ Counter: 0 }).animate({ Counter: $this.text() }, {
+			    duration: 4000,
+			    easing: 'swing',
+			    step: function (curValue) {
+		      	$this.text(Math.ceil(curValue));
+		    	}
+		   	});
+		});
 
        	} 
 
@@ -107,7 +107,7 @@
 
 	containerProjects.imagesLoaded( function() {
 
-		containerProjects.masonry( {		  
+		containerProjects.masonry( { 	  
 		  	itemSelector: '.folio-item',
 		  	resize: true 
 		});
@@ -156,7 +156,7 @@
    	toggleButton.toggleClass('is-clicked'); 
    	// fadeout the navigation panel
    	nav.fadeOut();   		
-   	     
+    	 
   	});
 
 
@@ -191,17 +191,17 @@
   	/* Smooth Scrolling
   	------------------------------------------------------ */
   	$('.smoothscroll').on('click', function (e) {
-	 	
+	  
 	 	e.preventDefault();
 
-   	var target = this.hash,
-    	$target = $(target);
+  	var target = this.hash,
+  	$target = $(target);
 
-    	$('html, body').stop().animate({
-       	'scrollTop': $target.offset().top
-      }, 800, 'swing', function () {
-      	window.location.hash = target;
-      });
+  	$('html, body').stop().animate({
+      	'scrollTop': $target.offset().top
+    }, 800, 'swing', function () {
+    	window.location.hash = target;
+    });
 
   	});  
   
@@ -236,30 +236,30 @@
 		      },
 		      success: function(msg) {
 
-	            // Message was sent
-	            if (msg == 'OK') {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').hide();
-	               $('#contactForm').fadeOut();
-	               $('#message-success').fadeIn();   
-	            }
-	            // There was an error
-	            else {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').html(msg);
-		            $('#message-warning').fadeIn();
-	            }
+            // Message was sent
+            if (msg == 'OK') {
+            	sLoader.fadeOut(); 
+               $('#message-warning').hide();
+               $('#contactForm').fadeOut();
+               $('#message-success').fadeIn();   
+            }
+            // There was an error
+            else {
+            	sLoader.fadeOut(); 
+               $('#message-warning').html(msg);
+	            $('#message-warning').fadeIn();
+            }
 
 		      },
 		      error: function() {
 
 		      	sLoader.fadeOut(); 
 		      	$('#message-warning').html("Something went wrong. Please try again.");
-		         $('#message-warning').fadeIn();
+	         $('#message-warning').fadeIn();
 
 		      }
 
-	      });     		
+	      });      		
   		}
 
 	});
@@ -284,8 +284,28 @@
 				jQuery("#go-top").fadeOut(fadeOutTime);
 			}
 
-		}		
+		} 	
 
-	});		
+	});	
+
+    // Lazy Loading for Images
+    document.addEventListener("DOMContentLoaded", function () {
+        const lazyImages = document.querySelectorAll("img.lazy-load");
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.getAttribute("data-src");
+                    img.classList.remove("lazy-load");
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach((img) => {
+            imageObserver.observe(img);
+        });
+    });
 
 })(jQuery);

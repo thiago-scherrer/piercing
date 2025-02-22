@@ -189,9 +189,9 @@
 
       for (let i = 1; i <= imgCount; i++) {
         const imgElement = document.createElement("img");
-        imgElement.src = `images/piercings/${i}.jpeg`;
+        imgElement.setAttribute("data-src", `images/piercings/${i}.jpeg`); // Use data-src
         imgElement.alt = `Piercing ${i}`;
-        imgElement.classList.add("slide-img");
+        imgElement.classList.add("slide-img", "lazy-load"); // Add lazy-load class
         if (i === 1) imgElement.style.display = "block";
         slidesContainer.appendChild(imgElement);
       }
