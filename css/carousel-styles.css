@@ -1,44 +1,44 @@
-/* Carousel specific styles */
-.carousel-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+  .carousel-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.slides {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .slides {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.slides img {
-    display: none;
-    width: auto;
-    height: 500px;
-    max-width: 100%;
-}
+    .slides img {
+      display: none;
+      width: auto;
+      height: 500px;
+      max-width: 100%;
+    }
 
-.carousel-btn {
-    cursor: pointer;
-    position: absolute;
-    transform: translateY(-50%);
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.8);
-    border: none;
-    user-select: none;
-}
+    .carousel-btn {
+      cursor: pointer;
+      position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.8);
+      /* Fundo quase opaco para melhor visibilidade */
+      border: none;
+      user-select: none;
+    }
 
-.prev {
-    left: 5px;
-}
+    .prev {
+      left: 5px;
+    }
 
-.next {
-    right: 5px;
-}
+    .next {
+      right: 5px;
+    }
