@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="pt-BR" itemscope itemtype="https://schema.org/ProfessionalService"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="pt-BR" itemscope itemtype="https://schema.org/ProfessionalService"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="pt-BR" itemscope itemtype="https://schema.org/ProfessionalService"> <!--<![endif]-->
 
 <head>
   <meta charset="utf-8">
@@ -11,8 +11,28 @@
     content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
   <meta name="keywords" content="body piercing, perfuração segura, Karina Scherrer, estúdio de piercing, arte corporal">
   <meta name="author" content="Karina Scherrer">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <link rel="icon" href="images/piercing-ico.png" type="image/png" />
+  
+  <!-- Meta Tags para SEO Aprimorado -->
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="7 days">
+  <meta name="language" content="Portuguese">
+  <meta name="generator" content="Vanilla JavaScript">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://piercing.work/">
+  <meta property="og:title" content="Scherrer Piercing - Excelência em Body Piercing">
+  <meta property="og:description" content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
+  <meta property="og:image" content="https://piercing.work/images/scherrer.jpeg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://piercing.work/">
+  <meta property="twitter:title" content="Scherrer Piercing - Excelência em Body Piercing">
+  <meta property="twitter:description" content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
+  <meta property="twitter:image" content="https://piercing.work/images/scherrer.jpeg">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/main.css">
@@ -99,12 +119,12 @@
     <div class="row services-content">
       <div class="col-twelve">
         <h3>Galeria de Piercings</h3>
-        <section id="carousel">
+        <section id="carousel" aria-label="Galeria de Piercings">
           <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="navigateSlides(-1)">&#10094;</button>
-            <div class="slides" id="slidesContainer">
+            <button class="carousel-btn prev" onclick="navigateSlides(-1)" aria-label="Imagem anterior">&#10094;</button>
+            <div class="slides" id="slidesContainer" aria-live="polite">
             </div>
-            <button class="carousel-btn next" onclick="navigateSlides(1)">&#10095;</button>
+            <button class="carousel-btn next" onclick="navigateSlides(1)" aria-label="Próxima imagem">&#10095;</button>
           </div>
         </section>
       </div>
@@ -120,17 +140,52 @@
         imgElement.setAttribute("data-src", `images/piercings/${i}.jpeg`);
         imgElement.alt = `Piercing ${i}`;
         imgElement.classList.add("gallery-item", "slide-img", "lazy-load");
-        if (i === 1) imgElement.style.display = "block";
+        imgElement.setAttribute("tabindex", "0"); // Torna a imagem focável pelo teclado
+        if (i === 1) {
+          imgElement.style.display = "block";
+          imgElement.setAttribute("aria-current", "true");
+        } else {
+          imgElement.setAttribute("aria-hidden", "true");
+        }
         slidesContainer.appendChild(imgElement);
       }
 
       let slideIndex = 0;
 
+      // Suporte para navegação por teclado
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+      
+      if (prevBtn && nextBtn) {
+        // Adiciona eventos de teclado para os botões do carrossel
+        prevBtn.addEventListener("keydown", function(e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            navigateSlides(-1);
+          }
+        });
+        
+        nextBtn.addEventListener("keydown", function(e) {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            navigateSlides(1);
+          }
+        });
+      }
+      
+      // Exporte a função navigateSlides para o escopo global
       window.navigateSlides = function (n) {
         const slides = document.querySelectorAll(".slide-img");
         slides[slideIndex].style.display = "none";
+        slides[slideIndex].setAttribute("aria-hidden", "true");
+        slides[slideIndex].removeAttribute("aria-current");
+        
         slideIndex = (slideIndex + n + slides.length) % slides.length;
+        
         slides[slideIndex].style.display = "block";
+        slides[slideIndex].setAttribute("aria-current", "true");
+        slides[slideIndex].removeAttribute("aria-hidden");
+        slides[slideIndex].focus(); // Foca na nova imagem para leitores de tela
       }
     });
   </script>
@@ -202,9 +257,34 @@
     <div id="loader"></div>
   </div>
 
-  <script src="js/jquery-2.1.3.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <!-- Script moderno que substitui jQuery -->
+  <script src="js/modern.js"></script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Scherrer Piercing",
+    "image": "https://piercing.work/images/scherrer.jpeg",
+    "url": "https://piercing.work",
+    "telephone": "+5511990137278",
+    "priceRange": "$$",
+    "description": "Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!",
+    "founder": {
+      "@type": "Person",
+      "name": "Karina Scherrer"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BR",
+      "addressLocality": "São Paulo"
+    },
+    "sameAs": [
+      "https://www.instagram.com/scherrerpiercing/"
+    ]
+  }
+  </script>
 
 </body>
 
