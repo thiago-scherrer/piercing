@@ -13,25 +13,27 @@
   <meta name="author" content="Karina Scherrer">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <link rel="icon" href="images/piercing-ico.png" type="image/png" />
-  
+
   <!-- Meta Tags para SEO Aprimorado -->
   <meta name="robots" content="index, follow">
   <meta name="revisit-after" content="7 days">
   <meta name="language" content="Portuguese">
   <meta name="generator" content="Vanilla JavaScript">
-  
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://piercing.work/">
   <meta property="og:title" content="Scherrer Piercing - Excelência em Body Piercing">
-  <meta property="og:description" content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
+  <meta property="og:description"
+    content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
   <meta property="og:image" content="https://piercing.work/images/scherrer.jpeg">
-  
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://piercing.work/">
   <meta property="twitter:title" content="Scherrer Piercing - Excelência em Body Piercing">
-  <meta property="twitter:description" content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
+  <meta property="twitter:description"
+    content="Descubra a excelência em body piercing com Karina Scherrer. Segurança, qualidade e conforto garantidos. Agende uma perfuração agora!">
   <meta property="twitter:image" content="https://piercing.work/images/scherrer.jpeg">
 
   <link rel="stylesheet" href="css/base.css">
@@ -121,7 +123,8 @@
         <h3>Galeria de Piercings</h3>
         <section id="carousel" aria-label="Galeria de Piercings">
           <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="navigateSlides(-1)" aria-label="Imagem anterior">&#10094;</button>
+            <button class="carousel-btn prev" onclick="navigateSlides(-1)"
+              aria-label="Imagem anterior">&#10094;</button>
             <div class="slides" id="slidesContainer" aria-live="polite">
             </div>
             <button class="carousel-btn next" onclick="navigateSlides(1)" aria-label="Próxima imagem">&#10095;</button>
@@ -133,7 +136,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const slidesContainer = document.getElementById("slidesContainer");
-      const imgCount = 48;
+      const imgCount = 51;
 
       for (let i = 1; i <= imgCount; i++) {
         const imgElement = document.createElement("img");
@@ -155,33 +158,33 @@
       // Suporte para navegação por teclado
       const prevBtn = document.querySelector(".carousel-btn.prev");
       const nextBtn = document.querySelector(".carousel-btn.next");
-      
+
       if (prevBtn && nextBtn) {
         // Adiciona eventos de teclado para os botões do carrossel
-        prevBtn.addEventListener("keydown", function(e) {
+        prevBtn.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             navigateSlides(-1);
           }
         });
-        
-        nextBtn.addEventListener("keydown", function(e) {
+
+        nextBtn.addEventListener("keydown", function (e) {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             navigateSlides(1);
           }
         });
       }
-      
+
       // Exporte a função navigateSlides para o escopo global
       window.navigateSlides = function (n) {
         const slides = document.querySelectorAll(".slide-img");
         slides[slideIndex].style.display = "none";
         slides[slideIndex].setAttribute("aria-hidden", "true");
         slides[slideIndex].removeAttribute("aria-current");
-        
+
         slideIndex = (slideIndex + n + slides.length) % slides.length;
-        
+
         slides[slideIndex].style.display = "block";
         slides[slideIndex].setAttribute("aria-current", "true");
         slides[slideIndex].removeAttribute("aria-hidden");
