@@ -3041,6 +3041,37 @@ footer .copyright span:last-child::after {
 
 /* Adicionando animações para hover em botões e imagens */
 .button, a.button, input[type="submit"],
+.button-styled {
+        display: inline-block;
+        font-family: "poppins-bold", sans-serif;
+        font-size: 1.6rem;
+        height: 5.5rem;
+        line-height: 5.5rem;
+        background: var(--primary-color);
+        color: var(--accent-color);
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        padding: 0 3rem;
+        border-radius: 8px; /* Slightly more rounded corners */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.button-styled:hover {
+        background: var(--hover-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px);
+}
+
+.button-styled:focus {
+        outline: 3px solid var(--hover-color);
+        outline-offset: 2px;
+}
+
+#cta-section .cta-content h2, #cta-section .cta-content h3 {
+        color: var(--primary-color);
+}
+
+
 .gallery-item {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     will-change: transform, box-shadow;
