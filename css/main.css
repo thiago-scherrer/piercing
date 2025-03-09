@@ -3012,17 +3012,35 @@ footer .copyright span:last-child::after {
         background: #000000;
 }
 
-/* Efeito de Gradiente Animado */
-.animated-gradient {
-    background: linear-gradient(90deg, #ff7e5f, #feb47b);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+
+/* Adicionando animações para hover em botões e imagens */
+.button, a.button, input[type="submit"],
+.gallery-item {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.button:hover, a.button:hover, input[type="submit"]:hover,
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Adicionando transição para os links */
+a {
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff0077;
+}
+/* Transições para o carrossel */
+.carousel-container button {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.carousel-container button:hover {
+    background-color: #ff0077;
+    transform: scale(1.1);
 }
 
 /* Efeito Glassmorphism */
