@@ -110,12 +110,37 @@ body {
         height: 100%;
 }
 
+/* Nova Paleta de Cores */
+:root {
+    --primary-color: #1abc9c; /* Verde Turquesa Moderno */
+    --secondary-color: #2c3e50; /* Azul Escuro Elegante */
+    --accent-color: #ecf0f1; /* Cinza Claro */
+    --text-color: #2c3e50;
+    --background-color: #ecf0f1;
+    --hover-color: #16a085; /* Verde Turquesa Mais Escuro */
+}
+
 body {
-        background: #151515;
-        font-family: "lora-regular", serif;
-        font-size: 1.7rem;
-        line-height: 3rem;
-        color: #ffffff;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+a, a:visited {
+    color: var(--primary-color);
+}
+
+a:hover, a:focus, a:active {
+    color: var(--hover-color);
+}
+
+.button, input[type="submit"] {
+    background: var(--primary-color);
+    color: var(--accent-color);
+}
+
+.button:hover, input[type="submit"]:hover {
+    background: var(--hover-color);
+    color: var(--accent-color);
 }
 
 /**
