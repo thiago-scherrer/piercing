@@ -1660,8 +1660,9 @@ header .logo a {
         transform: translateY(-2.1rem);
 }
 
-.intro-content h1 {
-        color: #FFFFFF;
+#intro #intro-heading {
+    font-size: 6vw; /* responsividade no tamanho de fonte */
+}
         font-family: "poppins-medium", sans-serif;
         font-size: 8.4rem;
         line-height: 1.071;

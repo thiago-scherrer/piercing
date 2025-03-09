@@ -249,7 +249,7 @@ th {
  * -------------------------------------------------------------------
  */
 html {
-	font-size: 62.5%;
+	font-size: 62.5%; /* base em rem para facilitar melhorias responsivas */
 	box-sizing: border-box;
 }
 
@@ -279,7 +279,7 @@ button {
  * Media - (_basic.scss)
  * -------------------------------------------------------------------
  */
-img,
+img, video, object, embed,
 video {
 	max-width: 100%;
 	height: auto;
