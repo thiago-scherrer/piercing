@@ -7,7 +7,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Inicialização dos componentes
+
   initPreloader();
   initScrollAnimations();
   initSmoothScroll();
@@ -39,7 +39,7 @@ function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
   if (animatedElements.length > 0) {
-    // Verifica se o IntersectionObserver é suportado
+
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -54,7 +54,7 @@ function initScrollAnimations() {
         observer.observe(element);
       });
     } else {
-      // Fallback para navegadores que não suportam IntersectionObserver
+
       animatedElements.forEach(element => {
         element.classList.add('is-visible');
       });
@@ -81,7 +81,7 @@ function initSmoothScroll() {
           behavior: 'smooth'
         });
 
-        // Atualiza URL sem recarregar
+
         history.pushState(null, null, targetId);
       }
     });
@@ -93,7 +93,7 @@ function initSmoothScroll() {
  */
 function initBackToTop() {
   const goTopButton = document.getElementById('go-top');
-  const scrollThreshold = 300; // Quando exibir o botão
+  const scrollThreshold = 300;
 
   if (goTopButton) {
     window.addEventListener('scroll', () => {
@@ -119,21 +119,21 @@ function initGallery() {
   const slidesContainer = document.getElementById('slidesContainer');
   if (!slidesContainer) return;
 
-  const imgCount = 52; // Número total de imagens
+  const imgCount = 52;
   let currentIndex = 0;
 
-  // Criar as imagens do carrossel
+
   for (let i = 1; i <= imgCount; i++) {
     const imgElement = document.createElement('img');
     imgElement.setAttribute('data-src', `images/piercings/${i}.jpeg`);
     imgElement.setAttribute('alt', `Piercing ${i}`);
     imgElement.classList.add('gallery-image', 'lazy-load');
-    imgElement.setAttribute('tabindex', '0'); // Torna a imagem focável para acessibilidade
+    imgElement.setAttribute('tabindex', '0');
 
     if (i === 1) {
       imgElement.style.display = 'block';
       imgElement.setAttribute('aria-current', 'true');
-      imgElement.src = imgElement.getAttribute('data-src'); // Carregar a primeira imagem
+      imgElement.src = imgElement.getAttribute('data-src');
     } else {
       imgElement.style.display = 'none';
       imgElement.setAttribute('aria-hidden', 'true');
@@ -142,7 +142,7 @@ function initGallery() {
     slidesContainer.appendChild(imgElement);
   }
 
-  // Configurar os botões de navegação
+
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
 
@@ -150,7 +150,7 @@ function initGallery() {
     prevBtn.addEventListener('click', () => navigateSlides(-1));
     nextBtn.addEventListener('click', () => navigateSlides(1));
 
-    // Navegação por teclado
+
     prevBtn.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -166,7 +166,7 @@ function initGallery() {
     });
   }
 
-  // Adicionar swipe em dispositivos touch
+
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -181,52 +181,52 @@ function initGallery() {
 
   function handleSwipe() {
     if (touchEndX < touchStartX) {
-      navigateSlides(1); // Swipe para esquerda, próxima imagem
+      navigateSlides(1);
     } else if (touchEndX > touchStartX) {
-      navigateSlides(-1); // Swipe para direita, imagem anterior
+      navigateSlides(-1);
     }
   }
 
-  // Função para navegar entre slides
+
   function navigateSlides(step) {
     const slides = document.querySelectorAll('.gallery-image');
 
-    // Esconder slide atual
+
     slides[currentIndex].style.display = 'none';
     slides[currentIndex].setAttribute('aria-hidden', 'true');
     slides[currentIndex].removeAttribute('aria-current');
 
-    // Calcular novo índice
+
     currentIndex = (currentIndex + step + slides.length) % slides.length;
 
-    // Mostrar novo slide
+
     slides[currentIndex].style.display = 'block';
     slides[currentIndex].setAttribute('aria-current', 'true');
     slides[currentIndex].removeAttribute('aria-hidden');
 
-    // Lazy loading - carregar a imagem se ainda não foi carregada
+
     if (slides[currentIndex].classList.contains('lazy-load')) {
       slides[currentIndex].src = slides[currentIndex].getAttribute('data-src');
       slides[currentIndex].classList.remove('lazy-load');
     }
 
-    // Pré-carregar as próximas imagens
+
     preloadNearbyImages(currentIndex, slides);
 
-    // Focar no novo slide para leitores de tela
+
     slides[currentIndex].focus();
   }
 
-  // Pré-carregar imagens próximas para melhorar a experiência
+
   function preloadNearbyImages(index, slides) {
-    // Pré-carregar próxima imagem
+
     const nextIndex = (index + 1) % slides.length;
     if (slides[nextIndex].classList.contains('lazy-load')) {
       const nextImg = new Image();
       nextImg.src = slides[nextIndex].getAttribute('data-src');
     }
 
-    // Pré-carregar imagem anterior
+
     const prevIndex = (index - 1 + slides.length) % slides.length;
     if (slides[prevIndex].classList.contains('lazy-load')) {
       const prevImg = new Image();
