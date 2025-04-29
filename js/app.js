@@ -119,7 +119,7 @@ function initGallery() {
   const slidesContainer = document.getElementById('slidesContainer');
   if (!slidesContainer) return;
 
-  const imgCount = 55;
+  const imgCount = 59;
   let currentIndex = 0;
 
 
